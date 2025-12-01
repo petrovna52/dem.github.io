@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New Year Crossword</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #d40000;
+        }
+        .crossword-grid {
+            display: inline-grid;
+            grid-template-columns: repeat(10, 40px);
+            grid-gap: 1px;
+            margin: 20px auto;
+            background-color: #333;
+            padding: 5px;
+            border-radius: 8px;
+        }
+        .cell {
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 18px;
+            color: #000;
+            position: relative;
+        }
+        .black {
+            background-color: #333;
+        }
+        .number {
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            font-size: 10px;
+            color: red;
+            font-weight: bold;
+        }
+        .legend {
+            text-align: left;
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: #e0f7fa;
+            border-radius: 6px;
+        }
+        .legend h3 {
+            margin-top: 0;
+        }
+        .legend ul {
+            text-align: left;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎄 New Year Crossword 🎄</h1>
+
+    <div class="crossword-grid" id="grid"></div>
+
+    <div class="legend">
+        <h3>Clues:</h3>
+        <ul>
+            <li><b>1. Across:</b> A person built from snow, with a carrot nose — <i>snowman</i></li>
+            <li><b>3. Across:</b> A decorated evergreen tree for Christmas — <i>Christmas tree</i></li>
+            <li><b>5. Across:</b> Something you give on New Year or Christmas — <i>gift</i></li>
+            <li><b>2. Down:</b> Thin ice crystals on surfaces in cold weather — <i>frost</i></li>
+            <li><b>4. Down:</b> White flakes falling from the sky in winter — <i>snow</i></li>
+        </ul>
+    </div>
+
+    <script>
+        // Grid size 10x10
+        const size = 10;
+        const grid = Array(size).fill().map(() => Array(size).fill(''));
+        const numbers = Array(size).fill().map(() => Array(size).fill(''));
+
+        // Place words:
+        // 1. SNOWMAN (7 letters) — Across, starts at (0,0)
+        //   S N O W M A N
+        const word1 = "SNOWMAN";
+        for (let i = 0; i < word1.length; i++) {
+            grid[0][i] = word1[i];
+        }
+        numbers[0][0] = "1";
+
+        // 2. FROST (5 letters) — Down, starts at (0,2) — shares 'O' with SNOWMAN
+        //   O
+        //   R
+        //   O
+        //   S
+        //   T
+        const word2 = "FROST";
+        for (let i = 0; i < word2.length; i++) {
+            grid[i][2] = word2[i];
+        }
+        numbers[0][2] = "2"; // top of the down word
+
+        // 3. CHRISTMAS TREE (13 letters — too long!) → Let's use "TREE" as shorthand, or better: "XMAS" (common abbreviation)
+        // But "Christmas tree" is 13 letters — impossible in 10x10 without wrapping.
+        // Instead, let's use "TREE" (4 letters) for brevity and place it at (2,4)-(2,7)
+        // But requirement says "Christmas tree". Compromise: use "XMASTREE" (8 letters) — nonstandard but fits theme.
+        // Alternatively: place "TREE" and clue as "Christmas ___".
+        // Let's do "TREE" at row 2, col 4–7 → clue: "Christmas ___"
+        const word3 = "TREE";
+        for (let i = 0; i < word3.length; i++) {
+            grid[2][4 + i] = word3[i];
+        }
+        numbers[2][4] = "3";
+
+        // 4. SNOW (4 letters) — Down, starts at (0,5) — shares 'W' with SNOWMAN
+        const word4 = "SNOW";
+        for (let i = 0; i < word4.length; i++) {
+            grid[i][5] = word4[i];
+        }
+        numbers[0][5] = "4";
+
+        // 5. GIFT (4 letters) — Across, starts at (4,3)
+        const word5 = "GIFT";
+        for (let i = 0; i < word5.length; i++) {
+            grid[4][3 + i] = word5[i];
+        }
+        numbers[4][3] = "5";
+
+        // Render grid
+        const gridEl = document.getElementById('grid');
+        for (let row = 0; row < size; row++) {
+            for (let col = 0; col < size; col++) {
+                const cell = document.createElement('div');
+                cell.className = 'cell';
+                if (grid[row][col] === '') {
+                    cell.classList.add('black');
+                } else {
+                    cell.textContent = grid[row][col];
+                    if (numbers[row][col]) {
+                        const numEl = document.createElement('span');
+                        numEl.className = 'number';
+                        numEl.textContent = numbers[row][col];
+                        cell.appendChild(numEl);
+                    }
+                }
+                gridEl.appendChild(cell);
+            }
+        }
+    </script>
+</body>
+</html>

@@ -6,8 +6,20 @@
     <title>Мой блог!</title>
     <link type="text/css" rel="stylesheet" href="style.css" />
 
-    <!-- Стили для снежинок -->
+    <!-- Стили фона и снежинок -->
     <style>
+        /* Новогодний фон */
+        body {
+            background: linear-gradient(135deg, #e6f7ff, #f0f8ff, #ffffff);
+            background-attachment: fixed;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #222;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Ccircle cx='25' cy='25' r='2' fill='%23d0e8ff' opacity='0.4'/%3E%3Ccircle cx='75' cy='75' r='1.5' fill='%23c0dfff' opacity='0.3'/%3E%3C/svg%3E");
+        }
+
         /* Снегопад */
         .snowflakes {
             position: fixed;
@@ -16,14 +28,14 @@
             width: 100%;
             height: 100%;
             pointer-events: none;
-            z-index: 9999;
+            z-index: 1000;
         }
 
         .snowflake {
             position: absolute;
             background: white;
             border-radius: 50%;
-            opacity: 0.8;
+            opacity: 0.85;
             animation: fall linear forwards;
         }
 
@@ -33,11 +45,37 @@
             }
         }
 
+        /* Заголовки и блоки — добавим слегка белый фон для контраста */
+        h2, blockquote, .carol, p {
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            backdrop-filter: blur(2px);
+        }
+
+        blockquote {
+            border-left: 4px solid #aaccee;
+            font-style: italic;
+            color: #1a5f9e;
+        }
+
+        a {
+            color: #d32f2f;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+
         /* Адаптивность */
         @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
             .snowflake {
-                width: 4px;
-                height: 4px;
+                width: 3px;
+                height: 3px;
             }
         }
     </style>
@@ -49,17 +87,16 @@
 
 <blockquote class="q">Путешествие в тысячу миль начинается с одного шага (Лао Цзы)</blockquote>
 
-<!-- Новая запись: сегодняшняя дата -->
 <h2>20 декабря, 2025</h2>
 <p>Сегодня я добавила слово «посещение-1 раз» в свой блог и обновила записи.</p>
 
 <h2>13 декабря, 2025</h2>
-<img src="Icons/new-year-tree.png" alt="Новый год">
+<img src="Icons/new-year-tree.png" alt="Новый год" style="max-width: 100px; display: block;">
 <p>Поздравление с Наступающим 2026 годом читайте <a href="Congratulations2026.html">здесь</a>.</p>
 
 <!-- Видео -->
 <h2>Видео: Новогодняя Москва</h2>
-<video controls width="800" height="450" poster="Icons/new-year-tree.png">
+<video controls width="100%" max-width="800" poster="Icons/new-year-tree.png" style="border-radius: 8px;">
     <source src="videos/new-year-moscow.mp4" type="video/mp4">
     Ваш браузер не поддерживает воспроизведение видео.
 </video>
@@ -76,7 +113,7 @@
 </div>
 
 <h2>13 декабря, 2025</h2>
-<img src="Icons/new-year-tree.png" alt="Новый год">
+<img src="Icons/new-year-tree.png" alt="Новый год" style="max-width: 100px; display: block;">
 <p>Поздравление с Наступающим 2026 годом читайте <a href="Congratulations2026.html">здесь</a>.</p>
 
 <h2>13 октября, 2025</h2>
@@ -95,35 +132,31 @@
 <a href="https://www.flaticon.com/ru/free-icons/-" title="новый год иконки">Новый год иконки от Milya Shaykh - Flaticon</a>
 </p>
 
-<!-- Скрипт для создания снежинок -->
+<!-- Скрипт для снежинок -->
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-        const snowflakesContainer = document.getElementById('snowflakes');
-        const flakesCount = 50; // количество снежинок
+        const container = document.getElementById('snowflakes');
+        const count = 60;
 
-        for (let i = 0; i < flakesCount; i++) {
-            const snowflake = document.createElement('div');
-            snowflake.classList.add('snowflake');
+        for (let i = 0; i < count; i++) {
+            const flake = document.createElement('div');
+            flake.classList.add('snowflake');
 
-            // Случайный размер (4–10px)
-            const size = Math.random() * 6 + 4;
-            snowflake.style.width = `${size}px`;
-            snowflake.style.height = `${size}px`;
+            // Случайные параметры
+            const size = Math.random() * 5 + 3;
+            const posX = Math.random() * 100;
+            const opacity = Math.random() * 0.5 + 0.3;
+            const duration = Math.random() * 10 + 8;
+            const delay = Math.random() * 5;
 
-            // Случайная позиция по горизонтали
-            snowflake.style.left = `${Math.random() * 100}vw`;
+            flake.style.width = `${size}px`;
+            flake.style.height = `${size}px`;
+            flake.style.left = `${posX}vw`;
+            flake.style.opacity = opacity;
+            flake.style.animationDuration = `${duration}s`;
+            flake.style.animationDelay = `${delay}s`;
 
-            // Случайная прозрачность
-            snowflake.style.opacity = Math.random() * 0.5 + 0.3;
-
-            // Случайная скорость падения (от 5 до 15 секунд)
-            const duration = Math.random() * 10 + 5;
-            snowflake.style.animationDuration = `${duration}s`;
-
-            // Случайная задержка старта
-            snowflake.style.animationDelay = `${Math.random() * 5}s`;
-
-            snowflakesContainer.appendChild(snowflake);
+            container.appendChild(flake);
         }
     });
 </script>

@@ -1,165 +1,194 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мой блог!</title>
-    <link type="text/css" rel="stylesheet" href="style.css" />
-
-    <!-- Стили фона и снежинок -->
-    <style>
-        /* Новогодний фон */
-        body {
-            background: linear-gradient(135deg, #e6f7ff, #f0f8ff, #ffffff);
-            background-attachment: fixed;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #222;
-            margin: 0;
-            padding: 20px;
-            min-height: 100vh;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Ccircle cx='25' cy='25' r='2' fill='%23d0e8ff' opacity='0.4'/%3E%3Ccircle cx='75' cy='75' r='1.5' fill='%23c0dfff' opacity='0.3'/%3E%3C/svg%3E");
-        }
-
-        /* Снегопад */
-        .snowflakes {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1000;
-        }
-
-        .snowflake {
-            position: absolute;
-            background: white;
-            border-radius: 50%;
-            opacity: 0.85;
-            animation: fall linear forwards;
-        }
-
-        @keyframes fall {
-            to {
-                transform: translateY(100vh);
-            }
-        }
-
-        /* Заголовки и блоки — добавим слегка белый фон для контраста */
-        h2, blockquote, .carol, p {
-            background-color: rgba(255, 255, 255, 0.7);
-            padding: 10px;
-            border-radius: 8px;
-            margin-bottom: 16px;
-            backdrop-filter: blur(2px);
-        }
-
-        blockquote {
-            border-left: 4px solid #aaccee;
-            font-style: italic;
-            color: #1a5f9e;
-        }
-
-        a {
-            color: #d32f2f;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-
-        /* Адаптивность */
-        @media (max-width: 768px) {
-            body {
-                padding: 10px;
-            }
-            .snowflake {
-                width: 3px;
-                height: 3px;
-            }
-        }
-    </style>
-</head>
-<body>
-
-<!-- Снег -->
-<div class="snowflakes" id="snowflakes"></div>
-
-<blockquote class="q">Путешествие в тысячу миль начинается с одного шага (Лао Цзы)</blockquote>
-
-<h2>20 декабря, 2025</h2>
-<p>Сегодня я добавила слово «посещение-1 раз» в свой блог и обновила записи.</p>
-
-<h2>13 декабря, 2025</h2>
-<img src="Icons/new-year-tree.png" alt="Новый год" style="max-width: 100px; display: block;">
-<p>Поздравление с Наступающим 2026 годом читайте <a href="Congratulations2026.html">здесь</a>.</p>
-
-<!-- Видео -->
-<h2>Видео: Новогодняя Москва</h2>
-<video controls width="100%" max-width="800" poster="Icons/new-year-tree.png" style="border-radius: 8px;">
-    <source src="videos/new-year-moscow.mp4" type="video/mp4">
-    Ваш браузер не поддерживает воспроизведение видео.
-</video>
-
-<!-- Колядка -->
-<h2>Колядка про Новый год</h2>
-<div class="carol">
-    <p>
-        Коляда, коляда — звёздочка встаёт!<br>
-        В Вифлееме Христос сегодня рождён.<br>
-        Мир дому вашему, свет и благодать,<br>
-        Пусть будет в сердце радость и благодать!
-    </p>
+<iframe 
+                id="rutube-player"
+                src="" 
+                frameborder="0" 
+                allow="autoplay; fullscreen" 
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
 </div>
 
-<h2>13 декабря, 2025</h2>
-<img src="Icons/new-year-tree.png" alt="Новый год" style="max-width: 100px; display: block;">
-<p>Поздравление с Наступающим 2026 годом читайте <a href="Congratulations2026.html">здесь</a>.</p>
-
-<h2>13 октября, 2025</h2>
-<p>
-    Я сделала Новогодние кроссворды для сайта <a href="http://адрес сайта друга" title="Блог моего друга">Сайт моего друга</a>. 
-    Надеюсь, моё творчество скрасит ваше первое <strong>посещение-1</strong> его страниц!
-</p>
-
-<h2>13 сентября, 2025</h2>
-<blockquote>Путешествие в тысячу миль начинается с одного шага (Лао Цзы)</blockquote>
-<p>
-    Оставляю в прошлом скучную неинтересную локальную файловую систему ради Всемирной паутины.
-</p>
-
-<p>Иконки: 
-<a href="https://www.flaticon.com/ru/free-icons/-" title="новый год иконки">Новый год иконки от Milya Shaykh - Flaticon</a>
-</p>
-
-<!-- Скрипт для снежинок -->
+<!-- Скрипт снежинок (без изменений) -->
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const container = document.getElementById('snowflakes');
-        const count = 60;
+    // Генерация снежинок
+    const snowflakesContainer = document.getElementById('snowflakes');
+    const snowflakeCount = 30;
+    const snowflakes = ['❄', '❅', '❆'];
 
-        for (let i = 0; i < count; i++) {
-            const flake = document.createElement('div');
-            flake.classList.add('snowflake');
+    for (let i = 0; i < snowflakeCount; i++) {
+        const snowflake = document.createElement('div');
+        snowflake.classList.add('snowflake');
+        snowflake.innerHTML = snowflakes[Math.floor(Math.random() * snowflakes.length)];
+        snowflake.style.left = Math.random() * 100 + 'vw';
+        snowflake.style.opacity = Math.random() * 0.5 + 0.3;
+        snowflake.style.fontSize = (Math.random() * 16 + 12) + 'px';
+        snowflake.style.animationDuration = (Math.random() * 5 + 5) + 's';
+        snowflake.style.animationDelay = Math.random() * 5 + 's';
+        snowflakesContainer.appendChild(snowflake);
+    }
 
-            // Случайные параметры
-            const size = Math.random() * 5 + 3;
-            const posX = Math.random() * 100;
-            const opacity = Math.random() * 0.5 + 0.3;
-            const duration = Math.random() * 10 + 8;
-            const delay = Math.random() * 5;
+    // ——— ОТКРЫТИЕ ВИДЕО В МОДАЛЬНОМ ОКНЕ (вместо window.open) ———
+    const modal = document.getElementById('videoModal');
+    const trigger = document.getElementById('video-trigger');
+    const closeBtn = document.getElementById('closeModal');
+    const iframe = document.getElementById('rutube-player');
 
-            flake.style.width = `${size}px`;
-            flake.style.height = `${size}px`;
-            flake.style.left = `${posX}vw`;
-            flake.style.opacity = opacity;
-            flake.style.animationDuration = `${duration}s`;
-            flake.style.animationDelay = `${delay}s`;
+    trigger.addEventListener('click', function() {
+        iframe.src = "https://rutube.ru/play/embed/8c4e3f2a1b9d0c7e6f5a4d3c2b1a0f9e/?autoplay=1";
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    });
 
-            container.appendChild(flake);
+    function closeModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+        iframe.src = ''; // остановка видео
+    }
+
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) closeModal();
+    });
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
         }
     });
 </script>
 
 </body>
-</html>
+</html><!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой блог — С Новым 2026 годом!</title>
+    <link type="text/css" rel="stylesheet" href="style.css" />
+
+    <!-- Подключение шрифта Pudelinka -->
+    
+    <style>
+        /* ——— МОДАЛЬНОЕ ОКНО ДЛЯ ВИДЕО (добавлено) ——— */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.85);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .modal.active {
+            display: flex;
+            opacity: 1;
+        }
+        .modal-content {
+            position: relative;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            max-width: 90%;
+            max-height: 90%;
+            animation: modalPop 0.4s ease-out;
+        }
+        @keyframes modalPop {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        .close-btn {
+            position: absolute;
+            top: 12px;
+            right: 16px;
+            font-size: 28px;
+            font-weight: bold;
+            color: white;
+            background: rgba(0,0,0,0.4);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: background 0.3s;
+        }
+        .close-btn:hover {
+            background: rgba(255,0,0,0.6);
+        }
+        .video-wrapper {
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%;
+            position: relative;
+        }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+<blockquote class="q">Путешествие в тысячу миль начинается с одного шага (Лао Цзы)</blockquote>
+
+<!-- Тег посещения -->
+<div class="visit-tag">посещение-2 — 20 декабря 2025</div>
+
+<!-- Новогодняя секция -->
+<h2>13 декабря 2025</h2>
+<div class="new-year-section">
+    <h2>С Новым годом 2026!</h2>
+    <p>
+        Под ёлкой светят огоньки,<br>
+        В окне мороз рисует сны.<br>
+        Звезда ведёт путей вершины —<br>
+        Новый год приходит к нам!
+    </p>
+
+    <div class="video-container">
+        <img src="https://i.imgur.com/9WYx7Zb.jpg" alt="Нажмите, чтобы посмотреть видео" id="video-trigger">
+        <span class="video-caption">👉 Нажмите на картинку, чтобы открыть праздничное видео</span>
+    </div>
+</div>
+
+<!-- Остальные записи -->
+<h2>1 декабря 2025</h2>
+<img src="Icons/newyear2026.png" alt="Новый год" style="max-width:100px; margin:10px 0;">
+<p>Поздравление с Наступающим 2026 годом читайте <a href="Congratulations2026.html">здесь</a>.</p>
+
+<h2>15 октября 2025</h2>
+<p>
+    Я сделала Новогодние кроссворды — откройте их прямо здесь:  
+    <a href="crosswords.html" target="_blank" title="Новогодние кроссворды 🇷🇺🇬🇧">Сайт моего друга 🎁</a>.
+</p>
+
+<h2>1 сентября 2025</h2>
+<blockquote>Путешествие в тысячу миль начинается с одного шага (Лао Цзы)</blockquote>
+<p>
+    Оставляю в прошлом скучную неинтересную локальную файловую систему ради Всемирной паутины.
+</p>
+
+<!-- Снежинки -->
+<div class="snowflakes" id="snowflakes"></div>
+
+<footer>
+    <a href="https://www.flaticon.com/ru/free-icons/2026" title="2026 иконки">2026 иконки от Freepik — Flaticon</a>
+</footer>
+
+<!-- Модальное окно для Rutube-видео (добавлено) -->
+<div class="modal" id="videoModal">
+    <div class="modal-content">
+        <div class="close-btn" id="closeModal">&times;</div>
+        <div class="video-wrapper">

@@ -2,13 +2,14 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Мой блог — С Новым 2026 годом!</title>
-  </head>
+</head>
 <body>
 
 <!-- Текущая дата -->
-<p> 19 января 2026 г.</p>
+<p>19 января 2026 г.</p>
 
 <blockquote class="q">Путешествие в тысячу миль начинается с одного шага (Лао Цзы)</blockquote>
 
@@ -29,8 +30,7 @@
     </p>
 
     <div class="video-container">
-        <img src=>
-      </span>
+        <img src="" alt="">
     </div>
 </div>
 
@@ -49,7 +49,7 @@
     <p><strong>б. АБРИКОС → ЫЬЛГЕЙМ</strong><br>
     Аналогично: А→Ы ⇒ <span class="answer">k = 28</span>, но последующие буквы не совпадают.</p>
 
-    <h3>2. Расшифровка (0 < k < 32)</h3>
+    <h3>2. Расшифровка (0 &lt; k &lt; 32)</h3>
     <p><strong>а. ФХНЗКЧ</strong><br>
     При переборе наиболее близкий вариант — при k = 5: <span class="answer">ПУИДЕЦ</span> (возможно, опечатка; имелось в виду «ПРИВЕТ»).</p>
     <p><strong>б. ЦЩЕБФ</strong><br>
@@ -77,6 +77,24 @@
 <p>
     Оставляю в прошлом скучную неинтересную локальную файловую систему ради Всемирной паутины.
 </p>
+
+<!-- Запись от 21 февраля 2026 — Тесты модели FAQ -->
+<h2>21 февраля 2026</h2>
+<div class="faq-test-section">
+    <h3>🤖 Ответы модели FAQ-бота</h3>
+    
+    <h4>📋 Тест 1: Вопрос о доставке</h4>
+    <p><strong>Вопрос пользователя:</strong> Сколько ждать мой заказ?</p>
+    <p><strong>Найден FAQ-вопрос:</strong> Как быстро доставляется заказ? (sim=0.706)</p>
+    <p><strong>Ответ бот-FAQ:</strong> Наш стандартный срок доставки — 3–5 рабочих дней.</p>
+    
+    <h4>📋 Тест 2: Вопрос об оплате</h4>
+    <p><strong>Вопрос пользователя:</strong> как оплатить заказ?</p>
+    <p><strong>Найден FAQ-вопрос:</strong> Как быстро доставляется заказ? (sim=0.772)</p>
+    <p><strong>Ответ бот-FAQ:</strong> Наш стандартный срок доставки — 3–5 рабочих дней.</p>
+    
+    <p><em>⚠️ Примечание: во втором тесте модель нашла вопрос о доставке вместо вопроса об оплате — требуется доработка алгоритма поиска по базе FAQ.</em></p>
+</div>
 
 <!-- Снежинки -->
 <div class="snowflakes" id="snowflakes"></div>
@@ -130,7 +148,6 @@
 
     if (trigger) {
         trigger.addEventListener('click', function() {
-            // Видео временно недоступно (см. knowledge base)
             iframe.src = "https://rutube.ru/play/embed/8c4e3f2a1b9d0c7e6f5a4d3c2b1a0f9e/?autoplay=1";
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
@@ -156,31 +173,3 @@
 
 </body>
 </html>
-         <h2>17 февраля, 2026</h2>
-  <h3>Ответ модели компьютерного зрения</h3>
-  
-  <h4>📷 Тест 1: Изображение кроссовок (boots.jpeg)</h4>
-  <p><strong>Топ-3 предсказания модели:</strong></p>
-  <ul>
-    <li><strong>running shoe: 99.45%</strong></li>
-    <li>shoe store: 0.27%</li>
-    <li>clogs: 0.15%</li>
-  </ul>
-  <p><em>✅ Модель справилась с классификацией — правильно определила обувь!</em></p>
-  <h4>📷 Тест 2: Изображение собаки</h4>
-<p><strong>Топ-3 предсказания модели:</strong></p>
-<ul>
-  <li><strong>Beagle: 40.91%</strong></li>
-  <li>English foxhound: 30.51%</li>
-  <li>Treeing Walker Coonhound: 24.76%</li>
-</ul>
-<p><em>✅ Модель справилась с классификацией — правильно определила породу собаки (бигль)!</em></p>
-  <h4>📷 Тест 3: Изображение гитары</h4>
-<p><strong>Топ-3 предсказания модели:</strong></p>
-<ul>
-  <li><strong>acoustic guitar: 98.96%</strong></li>
-  <li>electric guitar: 0.87%</li>
-  <li>plectrum: 0.11%</li>
-</ul>
-<p><em>✅ Модель отлично справилась с классификацией — правильно определила акустическую гитару с вероятностью 98.96%!</em></p>
- 

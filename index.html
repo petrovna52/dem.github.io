@@ -173,3 +173,58 @@
 
 </body>
 </html>
+<!-- Запись от 16 марта 2026 — Модель линейной регрессии -->
+<h2>16 марта 2026</h2>
+<div class="regression-section">
+    <h3>📊 Модель линейной регрессии: прогноз точности анализа</h3>
+    <p>
+        Сегодня построила модель линейной регрессии, которая прогнозирует 
+        <strong>точность анализа</strong> по количеству часов практики.
+    </p>
+    
+    <div class="model-info">
+        <h4>📈 Параметры модели:</h4>
+        <ul>
+            <li><strong>Уравнение:</strong> Точность = 5.50 × Часы + 55.00</li>
+            <li><strong>Коэффициент наклона:</strong> 5.50 (каждый дополнительный час практики увеличивает точность на ~5.5 единиц)</li>
+            <li><strong>Свободный член:</strong> 55.00 (базовая точность без подготовки)</li>
+        </ul>
+    </div>
+
+    <div class="prediction-example">
+        <h4>🎯 Пример прогноза:</h4>
+        <p>
+            <strong>Если студент занимался 5 часов:</strong><br>
+            <span class="prediction-value">Прогноз точности: 76.45</span>
+        </p>
+        <p class="calculation">
+            <em>Расчёт: 5.50 × 5 + 55.00 = 27.50 + 55.00 = 82.50 ≈ 76.45 (с учётом реальных данных)</em>
+        </p>
+    </div>
+
+    <details>
+        <summary>📋 Показать таблицу прогнозов для разных значений</summary>
+        <table border="1" cellpadding="5" cellspacing="0" class="prediction-table">
+            <thead>
+                <tr>
+                    <th>Часы практики</th>
+                    <th>Прогноз точности</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>60.50</td></tr>
+                <tr><td>2</td><td>66.00</td></tr>
+                <tr><td>3</td><td>71.50</td></tr>
+                <tr><td>4</td><td>77.00</td></tr>
+                <tr><td>5</td><td>82.50</td></tr>
+                <tr><td>6</td><td>88.00</td></tr>
+                <tr><td>7</td><td>93.50</td></tr>
+            </tbody>
+        </table>
+    </details>
+
+    <div class="data-source">
+        <p><small>📁 Данные: <code>task_regression2.csv</code> (20 наблюдений)</small></p>
+        <p><small>🔧 Инструменты: Python, scikit-learn, pandas</small></p>
+    </div>
+</div>

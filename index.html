@@ -1,178 +1,3 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Мой блог — С Новым 2026 годом!</title>
-</head>
-<body>
-
-<!-- Текущая дата -->
-<p>19 января 2026 г.</p>
-
-<blockquote class="q">Путешествие в тысячу миль начинается с одного шага (Лао Цзы)</blockquote>
-
-<!-- Тег посещения -->
-<div class="visit-tag">посещение-3 — 14 января 2026</div>
-
-<!-- Новогодняя секция -->
-<h2>13 декабря 2025</h2>
-<img src="Icons/icon.png" alt="Иконка сайта">
-   
-<div class="new-year-section">
-    <h2>С Новым годом 2026!</h2>
-    <p>
-        Под ёлкой светят огоньки,<br>
-        В окне мороз рисует сны.<br>
-        Звезда ведёт путей вершины —<br>
-        Новый год приходит к нам!
-    </p>
-
-    <div class="video-container">
-        <img src="" alt="">
-    </div>
-</div>
-
-<!-- Новая запись от 14 января 2026 -->
-<h2>14 января 2026</h2>
-<p>домен - petrovna52 github io . </p>
-<a href="mailto:lizalizaliza.2009@mail.ru">Написать мне</a>
-
-<!-- Решение задач по шифру Цезаря -->
-<div class="task-section">
-    <h2>Задачи по шифру Цезаря</h2>
-
-    <h3>1. Определение ключа</h3>
-    <p><strong>а. АПЕЛЬСИН → САЦЬНВЩЮ</strong><br>
-    Сдвиг не постоянен ⇒ данные, скорее всего, содержат ошибку. По первой букве: А→С ⇒ <span class="answer">k = 18</span>.</p>
-    <p><strong>б. АБРИКОС → ЫЬЛГЕЙМ</strong><br>
-    Аналогично: А→Ы ⇒ <span class="answer">k = 28</span>, но последующие буквы не совпадают.</p>
-
-    <h3>2. Расшифровка (0 &lt; k &lt; 32)</h3>
-    <p><strong>а. ФХНЗКЧ</strong><br>
-    При переборе наиболее близкий вариант — при k = 5: <span class="answer">ПУИДЕЦ</span> (возможно, опечатка; имелось в виду «ПРИВЕТ»).</p>
-    <p><strong>б. ЦЩЕБФ</strong><br>
-    Однозначного осмысленного слова нет. При k = 5: <span class="answer">ТЦЯЪУ</span>.</p>
-
-    <h3>3. Шифрование фамилии «ТАРАКАНОВА» с k = 10</h3>
-    <p>Используем алфавит из 32 букв (без «Ё»):<br>
-    Т→Ь, А→К, Р→Ъ, А→К, К→У, А→К, Н→Ч, О→Ш, В→М, А→К.<br>
-    <span class="answer">Зашифрованная фамилия: ЬКЪКУКЧШМК</span></p>
-</div>
-
-<!-- Остальные записи -->
-<h2>1 декабря 2025</h2>
-<img src="Icons/newyear2026.png" alt="Новый год" style="max-width:100px; margin:10px 0;">
-<p>Поздравление с Наступающим 2026 годом читайте <a href="Congratulations2026.html">здесь</a>.</p>
-
-<h2>15 октября 2025</h2>
-<p>
-    Я сделала Новогодние кроссворды — откройте их прямо здесь:  
-    <a href="crosswords.html" target="_blank" title="Новогодние кроссворды 🇷🇺🇬🇧">Сайт моего друга 🎁</a>.
-</p>
-
-<h2>1 сентября 2025</h2>
-<blockquote>Путешествие в тысячу миль начинается с одного шага (Лао Цзы)</blockquote>
-<p>
-    Оставляю в прошлом скучную неинтересную локальную файловую систему ради Всемирной паутины.
-</p>
-
-<!-- Запись от 21 февраля 2026 — Тесты модели FAQ -->
-<h2>21 февраля 2026</h2>
-<div class="faq-test-section">
-    <h3>🤖 Ответы модели FAQ-бота</h3>
-    
-    <h4>📋 Тест 1: Вопрос о доставке</h4>
-    <p><strong>Вопрос пользователя:</strong> Сколько ждать мой заказ?</p>
-    <p><strong>Найден FAQ-вопрос:</strong> Как быстро доставляется заказ? (sim=0.706)</p>
-    <p><strong>Ответ бот-FAQ:</strong> Наш стандартный срок доставки — 3–5 рабочих дней.</p>
-    
-    <h4>📋 Тест 2: Вопрос об оплате</h4>
-    <p><strong>Вопрос пользователя:</strong> как оплатить заказ?</p>
-    <p><strong>Найден FAQ-вопрос:</strong> Как быстро доставляется заказ? (sim=0.772)</p>
-    <p><strong>Ответ бот-FAQ:</strong> Наш стандартный срок доставки — 3–5 рабочих дней.</p>
-    
-    <p><em>⚠️ Примечание: во втором тесте модель нашла вопрос о доставке вместо вопроса об оплате — требуется доработка алгоритма поиска по базе FAQ.</em></p>
-</div>
-
-<!-- Снежинки -->
-<div class="snowflakes" id="snowflakes"></div>
-
-<!-- Футер с email -->
-<footer>
-    <p>Связаться со мной: <a href="mailto:lizalizaliza.2009@mail.ru">lizalizaliza.2009@mail.ru</a></p>
-    <a href="https://www.flaticon.com/ru/free-icons/2026" title="2026 иконки">2026 иконки от Freepik — Flaticon</a>
-</footer>
-
-<!-- Модальное окно для видео -->
-<div class="modal" id="videoModal">
-    <div class="modal-content">
-        <div class="close-btn" id="closeModal">&times;</div>
-        <div class="video-wrapper">
-            <iframe 
-                id="rutube-player"
-                src=""
-                frameborder="0"
-                allow="autoplay; fullscreen"
-                allowfullscreen>
-            </iframe>
-        </div>
-    </div>
-</div>
-
-<!-- Скрипты -->
-<script>
-    // Снежинки
-    const snowflakesContainer = document.getElementById('snowflakes');
-    const snowflakeCount = 30;
-    const snowflakes = ['❄', '❅', '❆'];
-
-    for (let i = 0; i < snowflakeCount; i++) {
-        const snowflake = document.createElement('div');
-        snowflake.classList.add('snowflake');
-        snowflake.innerHTML = snowflakes[Math.floor(Math.random() * snowflakes.length)];
-        snowflake.style.left = Math.random() * 100 + 'vw';
-        snowflake.style.opacity = Math.random() * 0.5 + 0.3;
-        snowflake.style.fontSize = (Math.random() * 16 + 12) + 'px';
-        snowflake.style.animationDuration = (Math.random() * 5 + 5) + 's';
-        snowflake.style.animationDelay = Math.random() * 5 + 's';
-        snowflakesContainer.appendChild(snowflake);
-    }
-
-    // Модальное окно
-    const modal = document.getElementById('videoModal');
-    const trigger = document.getElementById('video-trigger');
-    const closeBtn = document.getElementById('closeModal');
-    const iframe = document.getElementById('rutube-player');
-
-    if (trigger) {
-        trigger.addEventListener('click', function() {
-            iframe.src = "https://rutube.ru/play/embed/8c4e3f2a1b9d0c7e6f5a4d3c2b1a0f9e/?autoplay=1";
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        });
-    }
-
-    function closeModal() {
-        modal.classList.remove('active');
-        document.body.style.overflow = '';
-        iframe.src = ''; // остановка воспроизведения
-    }
-
-    if (closeBtn) closeBtn.addEventListener('click', closeModal);
-    if (modal) modal.addEventListener('click', function(e) {
-        if (e.target === modal) closeModal();
-    });
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
-            closeModal();
-        }
-    });
-</script>
-
-</body>
-</html>
 <!-- Запись от 16 марта 2026 — Модель линейной регрессии -->
 <h2>16 марта 2026</h2>
 <div class="regression-section">
@@ -191,14 +16,27 @@
         </ul>
     </div>
 
+    <!-- 🔹 Новый блок: метрика кредитной модели -->
+    <div class="credit-metric" style="margin: 20px 0; padding: 12px 16px; background: #e8f5e9; border-left: 4px solid #4CAF50; border-radius: 4px;">
+        <h4 style="margin: 0 0 8px 0;">💳 Модель оценки кредитоспособности</h4>
+        <p style="margin: 0;">
+            <strong>Показатель точности (Accuracy):</strong> 
+            <span class="answer" style="background: #4CAF50; color: white; padding: 4px 10px; border-radius: 4px; font-weight: bold;">0.69</span>
+        </p>
+        <p style="margin: 8px 0 0 0; font-size: 0.9em; color: #555;">
+            <em>Модель классификации: прогноз одобрения/отказа по заявке на кредит</em>
+        </p>
+    </div>
+    <!-- 🔹 Конец нового блока -->
+
     <div class="prediction-example">
-        <h4>🎯 Пример прогноза:</h4>
+        <h4>🎯 Пример прогноза (анализ):</h4>
         <p>
             <strong>Если студент занимался 5 часов:</strong><br>
-            <span class="prediction-value">Прогноз точности: 76.45</span>
+            <span class="prediction-value">Прогноз точности: 82.50</span>
         </p>
         <p class="calculation">
-            <em>Расчёт: 5.50 × 5 + 55.00 = 27.50 + 55.00 = 82.50 ≈ 76.45 (с учётом реальных данных)</em>
+            <em>Расчёт: 5.50 × 5 + 55.00 = 27.50 + 55.00 = 82.50</em>
         </p>
     </div>
 

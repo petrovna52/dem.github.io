@@ -1,40 +1,68 @@
-<!-- 🔹 Вставка метрик ошибки (MSE) -->
-<div class="mse-metrics-block" style="margin: 15px 0; padding: 12px; background: #f5f5f5; border-left: 4px solid #4CAF50; border-radius: 4px;">
-    <p style="margin: 0 0 8px 0; font-weight: bold; color: #333;">📉 Метрики ошибки (MSE):</p>
-    <ul style="margin: 0; padding-left: 20px; color: #555; font-size: 0.95em;">
-        <li>
-            <strong>Ошибка на обучении:</strong> 
-            <code style="background: #eee; padding: 2px 4px; border-radius: 3px;">0.021608019131903522</code>
-        </li>
-        <li style="margin-top: 4px;">
-            <strong>Ошибка на тесте:</strong> 
-            <code style="background: #eee; padding: 2px 4px; border-radius: 3px;">0.03142652734869536</code>
-        </li>
-    </ul>
-</div>
-<!-- 🔹 Конец вставки метрик -->
-
-<div class="model-info">
-    <h4>📈 Параметры модели:</h4>
-    <ul>
-        <li><strong>Уравнение:</strong> Точность = 5.50 × Часы + 55.00</li>
-        <li><strong>Коэффициент наклона:</strong> 5.50 (каждый дополнительный час практики увеличивает точность на ~5.5 единиц)</li>
-        <li><strong>Свободный член:</strong> 55.00 (базовая точность без подготовки)</li>
-    </ul>
-</div>
-
-<!-- 🔹 Блок: модель кредитного скоринга -->
-<div class="credit-model-block" style="margin: 20px 0; padding: 15px; background: #e3f2fd; border-left: 4px solid #2196F3; border-radius: 4px;">
-    <h4 style="margin: 0 0 10px 0;">💳 Модель оценки кредитоспособности</h4>
-    <p style="margin: 0 0 8px 0;">
-        Протестирована модель классификации для прогноза одобрения кредита.<br>
-        <strong>Точность модели:</strong> 
-        <span class="answer" style="background: #2196F3; color: white; padding: 4px 12px; border-radius: 4px; font-weight: bold; font-size: 1.1em;">0.67</span>
+<!-- 🔹 Вставка: Логика работы нейросети (30.03.2026) -->
+<div class="neural-network-explanation" style="margin: 20px 0; padding: 15px; background: #fff8e1; border-left: 4px solid #FF9800; border-radius: 4px;">
+    <p style="margin: 0 0 10px 0; font-size: 0.85em; color: #888;">📅 Обновлено: 30.03.2026</p>
+    
+    <h4 style="margin: 0 0 12px 0; color: #333;">🧠 Логика работы нейросети (по аналогии с линейной регрессией и деревом решений)</h4>
+    
+    <p style="margin: 0 0 10px 0; color: #555; line-height: 1.5;">
+        Если <strong>линейная регрессия</strong> ищет «лучшую прямую» (<code>y = wx + b</code>), 
+        а <strong>дерево решений</strong> строит цепочку вопросов «Если → То», 
+        то <strong>нейросеть</strong> объединяет тысячи простых нейронов в многослойную структуру, 
+        способную аппроксимировать зависимости любой сложности.
     </p>
-    <p style="margin: 0; font-size: 0.9em; color: #555;">
-        <em>Алгоритм: дерево решений / логистическая регрессия | Данные: исторические заявки</em>
+    
+    <div style="background: #fff; padding: 12px; border-radius: 4px; margin: 10px 0;">
+        <p style="margin: 0 0 8px 0; font-weight: bold; color: #333;">🔹 Как работает один нейрон:</p>
+        <ol style="margin: 0; padding-left: 20px; color: #555; font-size: 0.95em; line-height: 1.6;">
+            <li>Получает входы: <code>x₁, x₂, ... xₙ</code></li>
+            <li>Умножает на веса: <code>w₁, w₂, ... wₙ</code> (важность признаков)</li>
+            <li>Суммирует со смещением: <code>Z = Σ(xᵢ·wᵢ) + b</code> <em>(как в линейной регрессии)</em></li>
+            <li>Пропускает через <strong>функцию активации</strong> (ReLU, Sigmoid) — добавляет нелинейность</li>
+            <li>Передаёт результат следующему слою</li>
+        </ol>
+    </div>
+    
+    <div style="background: #fff; padding: 12px; border-radius: 4px; margin: 10px 0;">
+        <p style="margin: 0 0 8px 0; font-weight: bold; color: #333;">🔹 Как сеть учится (Backpropagation):</p>
+        <ol style="margin: 0; padding-left: 20px; color: #555; font-size: 0.95em; line-height: 1.6;">
+            <li><strong>Прямой проход:</strong> данные проходят через слои → получается прогноз</li>
+            <li><strong>Расчёт ошибки:</strong> сравниваем прогноз с правильным ответом (Loss Function)</li>
+            <li><strong>Обратный проход:</strong> вычисляем градиенты — как каждый вес повлиял на ошибку</li>
+            <li><strong>Корректировка:</strong> обновляем веса через Gradient Descent, чтобы уменьшить ошибку</li>
+            <li>Повторяем миллионы раз → веса «настраиваются» под данные</li>
+        </ol>
+    </div>
+    
+    <table style="width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.95em;">
+        <thead>
+            <tr style="background: #f5f5f5;">
+                <th style="padding: 8px; text-align: left; border: 1px solid #ddd;">Модель</th>
+                <th style="padding: 8px; text-align: left; border: 1px solid #ddd;">Логика</th>
+                <th style="padding: 8px; text-align: left; border: 1px solid #ddd;">Плюсы</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="padding: 8px; border: 1px solid #ddd;"><strong>Линейная регрессия</strong></td>
+                <td style="padding: 8px; border: 1px solid #ddd;">Одна прямая линия</td>
+                <td style="padding: 8px; border: 1px solid #ddd;">Проста, интерпретируема</td>
+            </tr>
+            <tr style="background: #fafafa;">
+                <td style="padding: 8px; border: 1px solid #ddd;"><strong>Дерево решений</strong></td>
+                <td style="padding: 8px; border: 1px solid #ddd;">Последовательность правил «Если → То»</td>
+                <td style="padding: 8px; border: 1px solid #ddd;">Наглядна, работает с нелинейными данными</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px; border: 1px solid #ddd; background: #fff8e1;"><strong>Нейросеть</strong></td>
+                <td style="padding: 8px; border: 1px solid #ddd; background: #fff8e1;">Многослойная композиция нелинейных функций</td>
+                <td style="padding: 8px; border: 1px solid #ddd; background: #fff8e1;">Универсальна, масштабируема, точна на сложных данных</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <p style="margin: 10px 0 0 0; font-size: 0.9em; color: #666; font-style: italic;">
+        💡 <strong>Ключевая идея:</strong> Нейросеть не ищет готовые правила — она <em>сама формирует признаки</em> через слои, 
+        превращая сырые данные в абстрактные представления, где задача становится линейно разделимой.
     </p>
 </div>
-<!-- 🔹 Конец блока кредитной модели -->
-
-<!-- ... остальной контент ... -->
+<!-- 🔹 Конец вставки: Логика работы нейросети -->

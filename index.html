@@ -1,34 +1,40 @@
-<!-- Запись от 16 марта 2026 — Модель линейной регрессии и кредитный скоринг -->
-<h2>16 марта 2026</h2>
-<div class="regression-section">
-    <h3>📊 Модель линейной регрессии: прогноз точности анализа</h3>
-    <p>
-        Сегодня построила модель линейной регрессии, которая прогнозирует 
-        <strong>точность анализа</strong> по количеству часов практики.
-    </p>
-    
-    <div class="model-info">
-        <h4>📈 Параметры модели:</h4>
-        <ul>
-            <li><strong>Уравнение:</strong> Точность = 5.50 × Часы + 55.00</li>
-            <li><strong>Коэффициент наклона:</strong> 5.50 (каждый дополнительный час практики увеличивает точность на ~5.5 единиц)</li>
-            <li><strong>Свободный член:</strong> 55.00 (базовая точность без подготовки)</li>
-        </ul>
-    </div>
-
-    <!-- 🔹 Блок: модель кредитного скоринга -->
-    <div class="credit-model-block" style="margin: 20px 0; padding: 15px; background: #e3f2fd; border-left: 4px solid #2196F3; border-radius: 4px;">
-        <h4 style="margin: 0 0 10px 0;">💳 Модель оценки кредитоспособности</h4>
-        <p style="margin: 0 0 8px 0;">
-            Протестирована модель классификации для прогноза одобрения кредита.<br>
-            <strong>Точность модели:</strong> 
-            <span class="answer" style="background: #2196F3; color: white; padding: 4px 12px; border-radius: 4px; font-weight: bold; font-size: 1.1em;">0.67</span>
-        </p>
-        <p style="margin: 0; font-size: 0.9em; color: #555;">
-            <em>Алгоритм: дерево решений / логистическая регрессия | Данные: исторические заявки</em>
-        </p>
-    </div>
-    <!-- 🔹 Конец блока кредитной модели -->
-
-    <!-- ... остальной контент ... -->
+<!-- 🔹 Вставка метрик ошибки (MSE) -->
+<div class="mse-metrics-block" style="margin: 15px 0; padding: 12px; background: #f5f5f5; border-left: 4px solid #4CAF50; border-radius: 4px;">
+    <p style="margin: 0 0 8px 0; font-weight: bold; color: #333;">📉 Метрики ошибки (MSE):</p>
+    <ul style="margin: 0; padding-left: 20px; color: #555; font-size: 0.95em;">
+        <li>
+            <strong>Ошибка на обучении:</strong> 
+            <code style="background: #eee; padding: 2px 4px; border-radius: 3px;">0.021608019131903522</code>
+        </li>
+        <li style="margin-top: 4px;">
+            <strong>Ошибка на тесте:</strong> 
+            <code style="background: #eee; padding: 2px 4px; border-radius: 3px;">0.03142652734869536</code>
+        </li>
+    </ul>
 </div>
+<!-- 🔹 Конец вставки метрик -->
+
+<div class="model-info">
+    <h4>📈 Параметры модели:</h4>
+    <ul>
+        <li><strong>Уравнение:</strong> Точность = 5.50 × Часы + 55.00</li>
+        <li><strong>Коэффициент наклона:</strong> 5.50 (каждый дополнительный час практики увеличивает точность на ~5.5 единиц)</li>
+        <li><strong>Свободный член:</strong> 55.00 (базовая точность без подготовки)</li>
+    </ul>
+</div>
+
+<!-- 🔹 Блок: модель кредитного скоринга -->
+<div class="credit-model-block" style="margin: 20px 0; padding: 15px; background: #e3f2fd; border-left: 4px solid #2196F3; border-radius: 4px;">
+    <h4 style="margin: 0 0 10px 0;">💳 Модель оценки кредитоспособности</h4>
+    <p style="margin: 0 0 8px 0;">
+        Протестирована модель классификации для прогноза одобрения кредита.<br>
+        <strong>Точность модели:</strong> 
+        <span class="answer" style="background: #2196F3; color: white; padding: 4px 12px; border-radius: 4px; font-weight: bold; font-size: 1.1em;">0.67</span>
+    </p>
+    <p style="margin: 0; font-size: 0.9em; color: #555;">
+        <em>Алгоритм: дерево решений / логистическая регрессия | Данные: исторические заявки</em>
+    </p>
+</div>
+<!-- 🔹 Конец блока кредитной модели -->
+
+<!-- ... остальной контент ... -->
